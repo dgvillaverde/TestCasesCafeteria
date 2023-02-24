@@ -16,24 +16,24 @@ def cafeteria(bebida):
     if not nombre.replace('','').isalpha():
         return 'No se puede tener un numero en el nombre'
 
-    if len(tamanio) < 1:
+    if len(tamanio) == 0:
         return 'Debe de por lo menos existir un tamaño de bebida'
     if len(tamanio) > 5:
         return 'Solo se puede hasta 5 tamaños de bebida'
-    if not tamanio.replace('','').isdigit():
-        return 'No se puede tener letras en el tamaño'
+    #if not tamanio.isdigit():
+    #    return 'No se puede tener letras en el tamaño'
 
     for i in range(len(tamanio)):
-        tamanio = tamanio[i]
+        tamanios = tamanio[i]
         try:
-            val = float(tamanio)
+            val = float(tamanios)
         except:
-            if tamanio == '':
+            if tamanios == '':
                 return 'Se dejo un espacio vacio entre las comas'
         else:
             if math.floor(val) != val:
                 return 'No se pueden usar decimales'
-            if val == 0:
+            if val < 1:
                 return 'El tamaño es menor a 1'
             if val > 48:
                 return 'El tamaño es mayor a 48'
