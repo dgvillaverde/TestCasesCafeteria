@@ -34,7 +34,7 @@ def cafeteria(bebida):
             if math.floor(val) != val:
                 return 'No se pueden usar decimales'
             if val < 1:
-                return 'El tamaño es menor a 1'
+                return 'El tamaño es menor a 1 o negativo'
             if val > 48:
                 return 'El tamaño es mayor a 48'
             tamanio[i] = val
