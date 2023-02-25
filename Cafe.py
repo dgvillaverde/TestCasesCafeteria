@@ -9,13 +9,15 @@ def cafeteria(bebida):
     nombre = formato[0]
     tamanio = formato[1:]
 
+    if not nombre.replace('','').isalpha():
+        return 'No se puede tener un numero en el nombre'
     if len(nombre) < 2:
         return 'El nombre de la bebida debe tener al menos 2 caracteres'
     if len(nombre) > 15:
         return 'El nombre de la bebida debe ser menos de 15 caracteres'
-    if not nombre.replace('','').isalpha():
-        return 'No se puede tener un numero en el nombre'
-
+    
+    #if not tamanio.replace('','').isdigit():
+    #   return 'No se puede tener letras en el tamaño'
     if len(tamanio) == 0:
         return 'Debe de por lo menos existir un tamaño de bebida'
     if len(tamanio) > 5:

@@ -4,8 +4,7 @@ from Cafe import cafeteria
 
 class CafeTest(unittest.TestCase):
 
-    #Test Cases Individuales
-    #Case 1 - Se ingresa una bebida de 4 Caracteres y 3 tamaños
+    #Case 1 - Se ingresa una bebida y 3 tamaños
     def test_n1(self):
         self.assertEqual(cafeteria('Agua, 1, 2, 3'), 'La bebida y tamaños se agregaron correctamente')
     
@@ -47,10 +46,36 @@ class CafeTest(unittest.TestCase):
     
     #Case 11 - Se ingresa un bebida y tamaños con negativos
     def test_n11(self):
-        self.assertEqual(cafeteria('Squirt, -2, 3, 5, 10'), 'Solo numeros enteros')
+        self.assertEqual(cafeteria('Squirt, -2, 3, 5, 10'), 'No se pueden numeros negativos')
+    
+    #Case 12 - Se ingresa un bebida y tamaños iguales
+    def test_n12(self):
+        self.assertEqual(cafeteria('Delaware, 2, 3, 5, 5'), 'No se puede tener tamaños iguales')
+    
+    #Case 13 - Se ingresa un bebida y tamaños en desorden
+    def test_n13(self):
+        self.assertEqual(cafeteria('Manzanita, 10, 3, 40, 1'), 'Los numeros estan en desorden')
+    
+    #Case 14 - Se ingresa un bebida con numero 
+    def test_n14(self):
+        self.assertEqual(cafeteria('1, 2, 5, 20, 40'), 'Solo numeros enteros')
+    
+    #Case 15 - Se ingresa un bebida y letras en los tamaños 
+    #def test_n15(self):
+    #    self.assertEqual(cafeteria('Boing, 2, mediano, 20, 40'), 'Solo numeros enteros')
 
-    #Test Cases del Profesor
-
+    #Case 16 - Se ingresa una bebida y tamaños grandes
+    def test_n16(self):
+        self.assertEqual(cafeteria('CocaCola, 10, 20, 30, 48'), 'La bebida y tamaños se agregaron correctamente')
+    
+    #Case 17 - Se ingresa una bebida y 0 en los tamaños
+    def test_n17(self):
+        self.assertEqual(cafeteria('Jugo, 0, 20, 30, 48'), 'No se pueden tener 0 en los tamanios')
+    
+    #Case 18 - Se ingresa una bebida y 5 tamaños
+    def test_n18(self):
+        self.assertEqual(cafeteria('FuzeTea, 10, 20, 30, 40, 48'), 'La bebida y tamaños se agregaron correctamente')
+    
 
 if __name__ == '__main__':
     unittest.main()
